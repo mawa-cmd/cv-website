@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Waleed | Hacker CV</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: #00ff00;
+    font-family: monospace;
+    overflow-x: hidden;
+}
+
+/* Matrix Background */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Content */
+.container {
+    padding: 30px;
+}
+
+h1 {
+    font-size: 35px;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+h2 {
+    border-bottom: 1px solid #00ff00;
+    padding-bottom: 5px;
+}
+
+a {
+    color: #00ff00;
+}
+
+/* Typing effect */
+.typing {
+    border-right: 2px solid #00ff00;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(40, end) forwards;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Glitch effect */
+.glitch {
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 0 red; }
+    25% { text-shadow: -2px 0 blue; }
+    50% { text-shadow: 2px 2px green; }
+    75% { text-shadow: -2px -2px red; }
+    100% { text-shadow: 2px 0 blue; }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="container">
+    <h1 class="glitch">> MUHAMMAD WALEED</h1>
+    <p class="typing">[ SYSTEM INITIALIZED... LOADING PROFILE ]</p>
+
+    <h2>💻 About Me</h2>
+    <p>Admin Assistant | Visa Consultant | Web Developer | Mobile Technician</p>
+
+    <h2>⚡ Skills</h2>
+    <ul>
+        <li>C / C++ Programming</li>
+        <li>Web Development (HTML, CSS)</li>
+        <li>Visa Consultancy (Schengen)</li>
+        <li>Mobile Hardware Repair</li>
+    </ul>
+
+    <h2>🧠 Experience</h2>
+    <p><b>Punjab College</b> - Admin Assistant</p>
+
+    <h2>🚀 Project</h2>
+    <a href="https://mawa-boutique--mawahubweb.replit.app" target="_blank">
+        Visit My Website
+    </a>
+
+    <h2>📞 Contact</h2>
+    <p>📱 03249613686</p>
+    <p>📧 mawa.hub.official@gmail.com</p>
+
+</div>
+
+<script>
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+
+for(let x = 0; x < columns; x++)
+    drops[x] = 1;
+
+function draw() {
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#0f0";
+    ctx.font = fontSize + "px monospace";
+
+    for(let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+            drops[i] = 0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 33);
+</script>ji
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Waleed | Hacker CV</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: #00ff00;
+    font-family: monospace;
+    overflow-x: hidden;
+}
+
+/* Matrix Background */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Content */
+.container {
+    padding: 30px;
+}
+
+h1 {
+    font-size: 35px;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+h2 {
+    border-bottom: 1px solid #00ff00;
+    padding-bottom: 5px;
+}
+
+a {
+    color: #00ff00;
+}
+
+/* Typing effect */
+.typing {
+    border-right: 2px solid #00ff00;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(40, end) forwards;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Glitch effect */
+.glitch {
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 0 red; }
+    25% { text-shadow: -2px 0 blue; }
+    50% { text-shadow: 2px 2px green; }
+    75% { text-shadow: -2px -2px red; }
+    100% { text-shadow: 2px 0 blue; }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="container">
+    <h1 class="glitch">> MUHAMMAD WALEED</h1>
+    <p class="typing">[ SYSTEM INITIALIZED... LOADING PROFILE ]</p>
+
+    <h2>💻 About Me</h2>
+    <p>Admin Assistant | Visa Consultant | Web Developer | Mobile Technician</p>
+
+    <h2>⚡ Skills</h2>
+    <ul>
+        <li>C / C++ Programming</li>
+        <li>Web Development (HTML, CSS)</li>
+        <li>Visa Consultancy (Schengen)</li>
+        <li>Mobile Hardware Repair</li>
+    </ul>
+
+    <h2>🧠 Experience</h2>
+    <p><b>Punjab College</b> - Admin Assistant</p>
+
+    <h2>🚀 Project</h2>
+    <a href="https://mawa-boutique--mawahubweb.replit.app" target="_blank">
+        Visit My Website
+    </a>
+
+    <h2>📞 Contact</h2>
+    <p>📱 03249613686</p>
+    <p>📧 mawa.hub.official@gmail.com</p>
+
+</div>
+
+<script>
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+
+for(let x = 0; x < columns; x++)
+    drops[x] = 1;
+
+function draw() {
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#0f0";
+    ctx.font = fontSize + "px monospace";
+
+    for(let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+            drops[i] = 0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 33);
+</script>
+
+</body>
+</html>
