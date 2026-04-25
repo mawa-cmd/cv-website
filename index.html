@@ -3,162 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waleed | Cyber Portfolio v2.0</title>
+    <title>Muhammad Waleed | Professional Resume</title>
     <style>
-        :root {
-            --neon-green: #00ff41; /* Classic Matrix Green */
-            --dark-bg: #050505;
-            --text-gray: #a0a0a0;
-        }
-
+        /* CSS for Professional Look */
         body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff; /* White Background */
+            color: #333;
             margin: 0;
-            background: var(--dark-bg);
-            color: var(--neon-green);
-            font-family: 'Courier New', Courier, monospace;
-            overflow-x: hidden;
-        }
-
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            opacity: 0.2;
+            padding: 0;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            max-width: 850px;
+            margin: 20px auto;
+            padding: 40px;
+            border: 1px solid #eee;
         }
 
-        /* Scanline Effect */
-        body::before {
-            content: " ";
-            display: block;
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 10;
-            background-size: 100% 2px, 3px 100%;
-            pointer-events: none;
-        }
-
-        .profile-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 2px solid var(--neon-green);
-            box-shadow: 0 0 20px var(--neon-green);
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin: 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 0 10px var(--neon-green);
-        }
-
-        .terminal-window {
-            background: rgba(0, 0, 0, 0.9);
-            border: 1px solid var(--neon-green);
-            padding: 25px;
-            margin-bottom: 30px;
-            border-radius: 5px;
-            position: relative;
-        }
-
-        .terminal-header {
-            position: absolute;
-            top: -12px;
-            left: 10px;
-            background: var(--dark-bg);
-            padding: 0 10px;
-            font-size: 0.8rem;
-            color: var(--text-gray);
-        }
-
-        .section-title {
-            color: #fff;
-            text-transform: uppercase;
-            border-bottom: 1px solid var(--neon-green);
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .btn-group {
+        /* Header Section */
+        .header {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
         }
 
-        .cyber-btn {
-            padding: 12px 30px;
-            border: 1px solid var(--neon-green);
-            background: transparent;
-            color: var(--neon-green);
-            text-decoration: none;
-            font-weight: bold;
+        .header-info h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #000;
             text-transform: uppercase;
-            transition: all 0.3s;
-            cursor: pointer;
         }
 
-        .cyber-btn:hover {
-            background: var(--neon-green);
-            color: black;
-            box-shadow: 0 0 20px var(--neon-green);
+        .contact-details {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #555;
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 5px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-top: 25px;
+            border-left: 5px solid #333;
+            text-transform: uppercase;
+        }
+
+        .content {
+            padding: 10px 5px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .item-sub {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* WhatsApp Button Style */
+        .whatsapp-container {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
         }
 
         .whatsapp-btn {
-            border-color: #25D366;
-            color: #25D366;
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            font-size: 16px;
+            transition: 0.3s;
         }
 
         .whatsapp-btn:hover {
-            background: #25D366;
-            box-shadow: 0 0 20px #25D366;
+            background-color: #128C7E;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        ul { list-style: none; padding: 0; }
-        li::before { content: "> "; color: var(--neon-green); }
+        .pdf-link {
+            display: block;
+            margin-top: 15px;
+            color: #555;
+            text-decoration: underline;
+            font-size: 14px;
+        }
 
+        @media (max-width: 600px) {
+            .header { flex-direction: column-reverse; text-align: center; }
+            .header-info { margin-top: 20px; }
+            .container { padding: 15px; margin: 5px; }
+        }
     </style>
 </head>
 <body>
 
-<canvas id="matrix"></canvas>
-
 <div class="container">
-    <div class="profile-header">
-        <img src="https://i.ibb.co/cSCsVjPb/F4-D171-F4-355-F-4-CCC-8-A1-A-59882-BACC38-A.png" alt="Waleed" class="profile-img">
-        <h1>MUHAMMAD WALEED</h1>
-        <p style="color: var(--text-gray);">System Administrator | Visa Expert | Developer</p>
+    
+    <div class="header">
+        <div class="header-info">
+            <h1>Muhammad Waleed</h1>
+            <div class="contact-details">
+                📍 Mandi Bahauddin, Punjab, Pakistan<br>
+                📞 Phone: 0324-9613686 | ✉️ Email: mawa.hub.official@gmail.com<br>
+                🌐 Web: <a href="https://mawa-boutique--mawahubweb.replit.app" style="color:#555;">mawa-boutique.replit.app</a>
+            </div>
+        </div>
+        <img src="https://i.ibb.co/cSCsVjPb/F4-D171-F4-355-F-4-CCC-8-A1-A-59882-BACC38-A.png" alt="Profile Image" class="profile-pic">
     </div>
 
-    <div class="terminal-window">
-        <div class="terminal-header">FILE: SUMMARY.LOG</div>
-        <span class="section-title">Professional Profile</span>
-        <p>I am a versatile specialist with a background in **Administration (Punjab College)**, **Schengen Visa Consultancy**, and **Hardware Engineering**. Expert in solving complex technical problems with a focus on web systems and mobile circuitry.</p>
+    <div class="section-title">Professional Summary</div>
+    <div class="content">
+        Motivated professional with a diverse background in <strong>Office Administration</strong>, <strong>Visa Consultancy</strong>, and <strong>Technical Services</strong>. Skilled in managing operations at Punjab College and processing international visa documentation. Proficient in <strong>C/C++ programming</strong>, Web Development, and <strong>Mobile Hardware Diagnostics</strong>.
     </div>
 
-    <div class="terminal-window">
-        <div class="terminal-header">EXEC: SKILLS.EXE</div>
-        <span class="section-title">Technical Arsenal</span>
+    <div class="section-title">Academic Qualifications</div>
+    <div class="content">
+        <div class="item-header">
+            <span>Intermediate (HSSC) - Science Group</span>
+            <span>Marks: 604 / 1100</span>
+        </div>
+        <div class="item-sub">Superior College</div>
+
+        <div class="item-header">
+            <span>Matriculation (SSC) - Science Group</span>
+            <span>Marks: 583 / 1100</span>
+        </div>
+        <div class="item-sub">Iqbal Public School</div>
+    </div>
+
+    <div class="section-title">Professional Experience</div>
+    <div class="content">
+        <div class="item-header">
+            <span>Admin Assistant</span>
+            <span>Punjab College</span>
+        </div>
         <ul>
-            <li>Programming: C, C++, Web Architecture</li>
-            <li>Consultancy: France Visa Dossier, SOP Writing, Refusal Analysis</li>
-            <li>Hardware: Advanced Mobile Circuitry & OS Flashing</li>
-            <li>Spiritual: Hifz-e-Quran (Surah Yaseen)</
+            <li>Handled office administration, student database management, and record-keeping.</li>
+            <li>Managed biometric attendance and internal departmental coordination.</li>
+        </ul>
+
+        <div class="item-header">
+            <span>Visa Consultant (Independent)</span>
+            <span>Specialist: France</span>
+        </div>
+        <ul>
+            <li>Expertise in international visa dossiers, SOP writing, and refusal analysis.</li>
+            <li>Handled travel documentation, flight bookings, and embassy protocols.</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Technical Skills & Certifications</div>
+    <div class="content">
+        <ul>
+            <li><strong>Programming & Web:</strong> C, C++, HTML, CSS (Responsive Design).</li>
+            <li><strong>Hardware:</strong> Diploma in Mobile Repairing from Punjab Computer College (Circuitry & Software).</li>
+            <li><strong>Consultancy:</strong> Visa Refusal Proof analysis and Embassy documentation legalities.</li>
+            <li><strong>Languages:</strong> English, Urdu, Punjabi.</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Additional Qualifications</div>
+    <div class="content">
+        <ul>
+            <li><strong>Hifz:</strong> Memorization of <strong>Surah Yaseen</strong>.</li>
+            <li><strong>Quranic Translation:</strong> Proficient in translation of the <strong>Last 10 Surahs</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="whatsapp-container">
+        <a href="https://wa.me/923249613686?text=Hello%20Waleed,%20I%20reviewed%20your%20CV%20and%20would%20like%20to%20discuss%20an%20opportunity." class="whatsapp-btn">
+            Connect on WhatsApp
+        </a>
+        <br>
+        <a href="cv.pdf" download class="pdf-link">Download Full CV (PDF Version)</a>
+    </div>
+
+</div>
+
+</body>
+</html>
