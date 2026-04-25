@@ -1,177 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Waleed | Cyber CV</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waleed | Cyber Portfolio v2.0</title>
+    <style>
+        :root {
+            --neon-green: #00ff41; /* Classic Matrix Green */
+            --dark-bg: #050505;
+            --text-gray: #a0a0a0;
+        }
 
-<style>
-body {
-    margin:0;
-    background:black;
-    color:#00ff00;
-    font-family: monospace;
-    text-align:center;
-}
+        body {
+            margin: 0;
+            background: var(--dark-bg);
+            color: var(--neon-green);
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
 
-/* Matrix background */
-canvas {
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:-1;
-}
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.2;
+        }
 
-/* Profile image */
-img {
-    margin-top:20px;
-    width:160px;
-    height:160px;
-    border-radius:50%;
-    border:3px solid #00ff00;
-    box-shadow:0 0 20px #00ff00;
-    transition:0.5s;
-}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-img:hover {
-    transform:scale(1.1);
-    box-shadow:0 0 40px #00ff00;
-}
+        /* Scanline Effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 10;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
 
-/* Sections */
-.box {
-    margin:20px;
-    padding:15px;
-    border:1px solid #00ff00;
-    display:inline-block;
-    width:80%;
-    text-align:left;
-}
+        .profile-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-/* Glitch text */
-h1 {
-    font-size:30px;
-    animation:glitch 1s infinite;
-}
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 20px var(--neon-green);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
 
-@keyframes glitch {
-    0% {text-shadow:2px 0 red;}
-    50% {text-shadow:-2px 0 blue;}
-    100% {text-shadow:2px 0 green;}
-}
+        h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--neon-green);
+        }
 
-/* Button */
-a {
-    color:black;
-    background:#00ff00;
-    padding:8px 15px;
-    text-decoration:none;
-    font-weight:bold;
-    display:inline-block;
-    margin-top:10px;
-}
-</style>
+        .terminal-window {
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--neon-green);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .terminal-header {
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background: var(--dark-bg);
+            padding: 0 10px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .section-title {
+            color: #fff;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--neon-green);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .cyber-btn {
+            padding: 12px 30px;
+            border: 1px solid var(--neon-green);
+            background: transparent;
+            color: var(--neon-green);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .cyber-btn:hover {
+            background: var(--neon-green);
+            color: black;
+            box-shadow: 0 0 20px var(--neon-green);
+        }
+
+        .whatsapp-btn {
+            border-color: #25D366;
+            color: #25D366;
+        }
+
+        .whatsapp-btn:hover {
+            background: #25D366;
+            box-shadow: 0 0 20px #25D366;
+        }
+
+        ul { list-style: none; padding: 0; }
+        li::before { content: "> "; color: var(--neon-green); }
+
+    </style>
 </head>
-
 <body>
 
 <canvas id="matrix"></canvas>
 
-<h1>MUHAMMAD WALEED</h1>
-<p id="typing"></p>
-<!-- 📸 IMAGE ADD HERE -->
-<img src="https://i.ibb.co/GQjhwdyK/IMG-1866.png"
-     style="width:160px; height:160px; border-radius:50%; box-shadow:0 0 25px #00ff00;">
-
-<div class="box">
-<h2>About Me</h2>
-<p>Admin Assistant | Visa Consultant | Web Developer | Mobile Technician</p>
-</div>
-
-<div class="box">
-<h2>Skills</h2>
-<ul>
-<li>C / C++</li>
-<li>HTML, CSS</li>
-<li>Visa Consultancy</li>
-<li>Mobile Repairing</li>
-</ul>
-</div>
-
-<div class="box">
-<h2>Project</h2>
-<a href="https://mawa-boutique--mawahubweb.replit.app">Visit My Website</a>
-</div>
-
-<div class="box">
-<h2>Contact</h2>
-<p>📱 0324-9613686</p>
-<p>📧 mawa.hub.official@gmail.com</p>
-    <a href="muhammad_waleed_cv.pdf" download>Download CV</a>
-<br><br>
-<a href="https://wa.me/923249613686">Hire Me on WhatsApp</a>
-<script>
-// MATRIX EFFECT
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
-
-let letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let fontSize = 14;
-let columns = canvas.width / fontSize;
-
-let drops = [];
-
-for(let i=0;i<columns;i++)
-drops[i]=1;
-    <script>
-let text = "Accessing Waleed Profile...";
-let i = 0;
-
-function typing() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing, 50);
-  }
-}
-typing();
-</script>
+<div class="container">
+    <div class="profile-header">
+        <img src="https://i.ibb.co/cSCsVjPb/F4-D171-F4-355-F-4-CCC-8-A1-A-59882-BACC38-A.png" alt="Waleed" class="profile-img">
+        <h1>MUHAMMAD WALEED</h1>
+        <p style="color: var(--text-gray);">System Administrator | Visa Expert | Developer</p>
     </div>
 
-function draw(){
-ctx.fillStyle="rgba(0,0,0,0.05)";
-ctx.fillRect(0,0,canvas.width,canvas.height);
+    <div class="terminal-window">
+        <div class="terminal-header">FILE: SUMMARY.LOG</div>
+        <span class="section-title">Professional Profile</span>
+        <p>I am a versatile specialist with a background in **Administration (Punjab College)**, **Schengen Visa Consultancy**, and **Hardware Engineering**. Expert in solving complex technical problems with a focus on web systems and mobile circuitry.</p>
+    </div>
 
-ctx.fillStyle="#0f0";
-ctx.font=fontSize+"px monospace";
+    <div class="terminal-window">
+        <div class="terminal-header">EXEC: SKILLS.EXE</div>
+        <span class="section-title">Technical Arsenal</span>
+        <ul>
+            <li>Programming: C, C++, Web Architecture</li>
+            <li>Consultancy: France Visa Dossier, SOP Writing, Refusal Analysis</li>
+            <li>Hardware: Advanced Mobile Circuitry & OS Flashing</li>
+            <li>Spiritual: Hifz-e-Quran (Surah Yaseen)</li>
+        </ul>
+    </div>
 
-for(let i=0;i<drops.length;i++){
-let text=letters[Math.floor(Math.random()*letters.length)];
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+    <div class="btn-group">
+        <a href="cv.pdf" download class="cyber-btn">📄 Download Clean CV (PDF)</a>
+        
+        <a href="https://mawa-boutique--mawahubweb.replit.app" target="_blank" class="cyber-btn">🌐 Live Website</a>
 
-if(drops[i]*fontSize>canvas.height)
-drops[i]=0;
+        <a href="https://wa.me/923249613686?text=Hello%20Waleed,%20I%20saw%20your%20portfolio%20and%20want%20to%20hire%20you." 
+           class="cyber-btn whatsapp-btn">💬 Contact on WhatsApp</a>
+    </div>
 
-drops[i]++;
-}
-}
+    <p style="text-align: center; margin-top: 40px; font-size: 0.7rem; color: var(--text-gray);">
+        [SYSTEM STATUS: ONLINE] | [LOCATION: MANDI BAHAUDDIN]
+    </p>
+</div>
 
-setInterval(draw,35);
-</script>
-    <script>
-let text = "Accessing Waleed Profile...";
-let i = 0;
+<script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    const chars = "01010101WALEEDSYSTEMSYSTEM01";
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
 
-function typing() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing, 50);
-  }
-}
-typing();
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#00ff41";
+        ctx.font = fontSize + "px monospace";
+        for (let i = 0; i < drops.length; i++) {
+            const text = chars.charAt(Math.floor(Math.random() * chars.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
+        }
+    }
+    setInterval(draw, 35);
 </script>
 
 </body>
